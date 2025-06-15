@@ -166,7 +166,7 @@
     <button class="han-button" onclick="selectHan('13+')">13+</button>
     <button class="han-button" onclick="selectHan('역만')">역만</button>
   </div>
-<font size="2">역 외우세용 ㅋㅋㅋ <br>
+<font size="1">역 외우세용 ㅋㅋㅋ <br>
 역 일람 (링크 추가?)</font>
 
   <!-- FU CALCULATOR SECTION -->
@@ -226,7 +226,7 @@
   <br>
   <br>
   <div class="section-title">점수표</div>
-<font size="2">연짱당 300 (100올) 추가</font>
+<font size="1">연짱당 300 (100올) 추가</font>
 <br><br>
 <!-- Tabs container -->
 <div class="tabs">
@@ -512,7 +512,7 @@
     resetFU();
     selectedHan = null;
     document.querySelectorAll('.han-button').forEach(btn => btn.classList.remove('selected'));
-    document.getElementById('selected-han-display').textContent = "Selected Han: 0";
+    document.getElementById('selected-han-display').textContent = "판수: 0";
   }
 
   function selectHan(value) {
@@ -523,7 +523,7 @@
         btn.classList.add('selected');
       }
     });
-    document.getElementById('selected-han-display').textContent = "Selected Han: " + value;
+    document.getElementById('selected-han-display').textContent = "판수: " + value;
   }
 
   updateDisplay();
