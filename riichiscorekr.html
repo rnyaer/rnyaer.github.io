@@ -144,7 +144,7 @@
 <img src="https://assets.onecompiler.app/43muy4hjn/43muy6b6h/1803c6c1b07525907.png" width="360"> <br> <br>
   <!-- HAN SECTION -->
   <div class="section-title">판수</div>
-  <div class="han-display" id="selected-han-display">Selected Han: None</div>
+  <div class="han-display" id="selected-han-display">판수: 0</div>
 
   <div class="button-row">
     <button class="han-button" onclick="selectHan('1')">1</button>
@@ -164,7 +164,7 @@
     <button class="han-button" onclick="selectHan('11')">11</button>
     <button class="han-button" onclick="selectHan('12')">12</button>
     <button class="han-button" onclick="selectHan('13+')">13+</button>
-    <button class="han-button" onclick="selectHan('YAKUMAN')">YAKUMAN</button>
+    <button class="han-button" onclick="selectHan('역만')">역만</button>
   </div>
 역 외우세용 ㅋㅋㅋ <br>
 역 일람 (링크 추가?)
@@ -202,14 +202,14 @@
     <td><font size="1">안커: +4/+8</font></td>
   </tr>
   <tr>
-    <td><font size="1">쯔모외모든핑후: +10</font></td>
-    <td><font size="1">간짱벽짱단기대기: +2</font></td>
+    <td><font size="1">쯔모외핑후: +10</font></td>
+    <td><font size="1">간짱벽짱단기: +2</font></td>
     <td><font size="1">중장패- 작은숫자</font></td>
     <td><font size="1">밍깡: +8/+16</font></td>
   </tr>
    <tr>
-    <td><font size="1">Chiitoi: +5</font></td>
-    <td><font size="1">Double Wait: +0</font></td>
+    <td><font size="1">치또이: +5</font></td>
+    <td><font size="1">양면대기: +0</font></td>
     <td><font size="1">요구패 - 큰숫자</font></td>
     <td><font size="1">안깡: +16/+32</font></td>
   </tr>
@@ -493,9 +493,9 @@
   let selectedHan = null;
 
   function updateDisplay() {
-    document.getElementById("current-value").textContent = "Current Value: " + currentValue;
+    document.getElementById("current-value").textContent = "부수 총합: " + currentValue;
     const rounded = Math.ceil(currentValue / 10) * 10;
-    document.getElementById("rounded-value").textContent = "Rounded up to nearest 10: " + rounded;
+    document.getElementById("rounded-value").textContent = "10의 자리로 올림: " + rounded;
   }
 
   function addValue(amount) {
@@ -512,7 +512,7 @@
     resetFU();
     selectedHan = null;
     document.querySelectorAll('.han-button').forEach(btn => btn.classList.remove('selected'));
-    document.getElementById('selected-han-display').textContent = "Selected Han: None";
+    document.getElementById('selected-han-display').textContent = "Selected Han: 0";
   }
 
   function selectHan(value) {
