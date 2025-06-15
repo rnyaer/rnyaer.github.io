@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Han & Fu Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Atkinson Hyperlegible', sans-serif; 
+      background: #f1f3f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .calculator {
+      background: white;
+      padding: 2rem;
+      border-radius: 1.25rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      width: 360px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #202124;
+    }
+
+    .han-display {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #d93025;
+      font-weight: bold;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 0.4rem 0.9rem;
+      border: none;
+      border-radius: 1rem;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      font-weight: 500;
+    }
+
+    .han-button {
+      background-color: #e8eaed;
+      color: #202124;
+    }
+
+    .han-button:hover {
+      background-color: #d7d9dc;
+    }
+
+    .han-button.selected {
+      background-color: #1a73e8;
+      color: white;
+    }
+
+    .value-display {
+      font-size: 1rem;
+      color: #202124;
+      margin-top: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .rounded-display {
+      color: #d93025;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+       font-weight: bold;
+    }
+
+    .add-button {
+      background-color: #1a73e8;
+      color: white;
+    }
+
+    .add-button:hover {
+      background-color: #1558c0;
+    }
+
+    .reset-button {
+      background-color: #d93025;
+      color: white;
+      margin-top: 0.75rem;
+    }
+
+    .reset-button:hover {
+      background-color: #b1271b;
+    }
+
+    .reset-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .reset-full {
+      width: 100%;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="calculator">
+
+  <!-- HAN SECTION -->
+  <div class="section-title">NUMBER OF HAN</div>
+  <div class="han-display" id="selected-han-display">Selected Han: None</div>
+
+  <div class="button-row">
+    <button class="han-button" onclick="selectHan('1')">1</button>
+    <button class="han-button" onclick="selectHan('2')">2</button>
+    <button class="han-button" onclick="selectHan('3')">3</button>
+    <button class="han-button" onclick="selectHan('4')">4</button>
+    <button class="han-button" onclick="selectHan('5')">5</button>
+  </div>
+  <div class="button-row">
+    <button class="han-button" onclick="selectHan('6')">6</button>
+    <button class="han-button" onclick="selectHan('7')">7</button>
+    <button class="han-button" onclick="selectHan('8')">8</button>
+    <button class="han-button" onclick="selectHan('9')">9</button>
+    <button class="han-button" onclick="selectHan('10')">10</button>
+  </div>
+  <div class="button-row">
+    <button class="han-button" onclick="selectHan('11')">11</button>
+    <button class="han-button" onclick="selectHan('12')">12</button>
+    <button class="han-button" onclick="selectHan('13+')">13+</button>
+  </div>
+
+  <!-- FU CALCULATOR SECTION -->
+  <div class="section-title" style="margin-top: 2rem;">FU CALCULATOR</div>
+  <div class="value-display" id="current-value">Current Value: 20</div>
+  <div class="rounded-display" id="rounded-value">Rounded up to nearest 10: 20</div>
+
+  <div class="button-row">
+    <button class="add-button" onclick="addValue(5)">+5</button>
+    <button class="add-button" onclick="addValue(10)">+10</button>
+  </div>
+  <div class="button-row">
+    <button class="add-button" onclick="addValue(2)">+2</button>
+    <button class="add-button" onclick="addValue(4)">+4</button>
+    <button class="add-button" onclick="addValue(8)">+8</button>
+    <button class="add-button" onclick="addValue(16)">+16</button>
+    <button class="add-button" onclick="addValue(32)">+32</button>
+  </div>
+
+  <!-- Two Reset Buttons -->
+  <div class="reset-row">
+    <button class="reset-button" onclick="resetFU()">Reset FU</button>
+    <button class="reset-button" onclick="resetAll()">Reset All</button>
+  </div>
+
+</div>
+
+<script>
+  const defaultValue = 20;
+  let currentValue = defaultValue;
+  let selectedHan = null;
+
+  function updateDisplay() {
+    document.getElementById("current-value").textContent = "Current Value: " + currentValue;
+    const rounded = Math.ceil(currentValue / 10) * 10;
+    document.getElementById("rounded-value").textContent = "Rounded up to nearest 10: " + rounded;
+  }
+
+  function addValue(amount) {
+    currentValue += amount;
+    updateDisplay();
+  }
+
+  function resetFU() {
+    currentValue = defaultValue;
+    updateDisplay();
+  }
+
+  function resetAll() {
+    resetFU();
+    selectedHan = null;
+    document.querySelectorAll('.han-button').forEach(btn => btn.classList.remove('selected'));
+    document.getElementById('selected-han-display').textContent = "Selected Han: None";
+  }
+
+  function selectHan(value) {
+    selectedHan = value;
+    document.querySelectorAll('.han-button').forEach(btn => {
+      btn.classList.remove('selected');
+      if (btn.textContent === value) {
+        btn.classList.add('selected');
+      }
+    });
+    document.getElementById('selected-han-display').textContent = "Selected Han: " + value;
+  }
+
+  updateDisplay();
+</script>
+
+</body>
+</html>
