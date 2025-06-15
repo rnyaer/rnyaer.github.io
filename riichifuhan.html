@@ -29,7 +29,7 @@
       font-size: 1.4rem;
       font-weight: 600;
       margin-bottom: 0.75rem;
-      color: #202124;
+      color: #2aa27f;
     }
 
     .han-display {
@@ -63,11 +63,11 @@
     }
 
     .han-button:hover {
-      background-color: #d7d9dc;
+      background-color: #117d5e;
     }
 
     .han-button.selected {
-      background-color: #1a73e8;
+      background-color: #2aa27f;
       color: white;
     }
 
@@ -86,22 +86,22 @@
     }
 
     .add-button {
-      background-color: #1a73e8;
+      background-color: #2aa27f;
       color: white;
     }
 
     .add-button:hover {
-      background-color: #1558c0;
+      background-color: #117d5e;
     }
 
     .reset-button {
-      background-color: #d93025;
+      background-color: #e8ab42;
       color: white;
       margin-top: 0.75rem;
     }
 
     .reset-button:hover {
-      background-color: #b1271b;
+      background-color: #be991c;
     }
 
     .reset-row {
@@ -114,8 +114,17 @@
       width: 100%;
       margin-top: 1rem;
     }
+    
+    table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+th, td {
+  background-color: #f1f3f4;
+}
   </style>
 </head>
+
 <body>
 
 <div class="calculator">
@@ -142,7 +151,10 @@
     <button class="han-button" onclick="selectHan('11')">11</button>
     <button class="han-button" onclick="selectHan('12')">12</button>
     <button class="han-button" onclick="selectHan('13+')">13+</button>
+    <button class="han-button" onclick="selectHan('YAKUMAN')">YAKUMAN</button>
   </div>
+memorize your yaku lol <br>
+riichi yaku list (link tba)
 
   <!-- FU CALCULATOR SECTION -->
   <div class="section-title" style="margin-top: 2rem;">FU CALCULATOR</div>
@@ -161,11 +173,47 @@
     <button class="add-button" onclick="addValue(32)">+32</button>
   </div>
 
+  <!-- FU ADDITION TABLE -->
+<table>
+  
+  <tr>
+    <td><font size="1">Fu base: 20</font></td>
+    <td><font size="1">Menzen ron: +10</font></td>
+    <td><font size="1">Pair Yakuhai: +2</font></td>
+    <td><font size="1">Mingke: +2/+4</font></td>
+  </tr>
+  <tr>
+    <td><font size="1">Pinfu Tsumo: +0</font></td>
+    <td><font size="1">Tsumo: +2</font></td>
+    <td><font size="1">Pair not Yakuhai: +0</font></td>
+    <td><font size="1">Anke: +4/+8</font></td>
+  </tr>
+  <tr>
+    <td><font size="1">All other pinfu: +10</font></td>
+    <td><font size="1">Single Wait: +2</font></td>
+    <td><font size="1">2-8: smaller number</font></td>
+    <td><font size="1">Mingkan: +8/+16</font></td>
+  </tr>
+   <tr>
+    <td><font size="1">Chiitoi: +5</font></td>
+    <td><font size="1">Double Wait: +0</font></td>
+    <td><font size="1">1, 9, hon: larger number</font></td>
+    <td><font size="1">Ankan: +16/+32</font></td>
+  </tr>
+ 
+</table>
+
   <!-- Two Reset Buttons -->
   <div class="reset-row">
     <button class="reset-button" onclick="resetFU()">Reset FU</button>
     <button class="reset-button" onclick="resetAll()">Reset All</button>
   </div>
+  
+  <!-- Score Chart -->
+  <br>
+  <br>
+  <div class="section-title">SCORE CHART</div>
+<img src="https://assets.onecompiler.app/43muy4hjn/43muy6b6h/1803c6c1b07525907.png" width="360">
 
 </div>
 
@@ -211,5 +259,7 @@
   updateDisplay();
 </script>
 
+
+ 
 </body>
 </html>
