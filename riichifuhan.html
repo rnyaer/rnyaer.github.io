@@ -123,12 +123,63 @@ th, td {
   background-color: #f1f3f4;
 }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  /* Google-style tabs */
+  .tabs {
+    display: flex;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 16px;
+  }
+
+  .tab {
+    padding: 12px 24px;
+    font-weight: 500;
+    color: #5f6368;
+    cursor: pointer;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent;
+  }
+
+  .tab:hover {
+    color: #1a73e8;
+  }
+
+  .tab.active {
+    color: #1a73e8;
+    border-bottom: 2px solid #1a73e8;
+  }
+
+  .chart-container {
+    background: white;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(60,64,67,0.15);
+  }
+
+  canvas {
+    max-width: 100%;
+  }
+
+  body {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    background: #f8f9fa;
+    padding: 30px;
+  }
+
+  h2 {
+    font-weight: 500;
+    color: #202124;
+  }
+</style>
 </head>
 
 <body>
+  
 
 <div class="calculator">
-
+<img src="https://assets.onecompiler.app/43muy4hjn/43muy6b6h/1803c6c1b07525907.png" width="360"> <br> <br>
   <!-- HAN SECTION -->
   <div class="section-title">NUMBER OF HAN</div>
   <div class="han-display" id="selected-han-display">Selected Han: None</div>
@@ -213,7 +264,276 @@ riichi yaku list (link tba)
   <br>
   <br>
   <div class="section-title">SCORE CHART</div>
-<img src="https://assets.onecompiler.app/43muy4hjn/43muy6b6h/1803c6c1b07525907.png" width="360">
+
+
+<!-- Tabs -->
+<div class="tabs">
+  <div class="tab active" data-tab="tab1">Dealer</div>
+  <div class="tab" data-tab="tab2">Non-Dealer</div>
+
+</div>
+
+<!-- Content Areas -->
+<div class="chart-container">
+  <div class="tab-content" id="tab1">
+<style type="text/css">
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:12px;overflow:hidden;padding:2px 2px;word-break:normal;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:12px;font-weight:normal;overflow:hidden;padding:1px 1px;word-break:normal;}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-f4iu{border-color:inherit;font-size:10px;text-align:center;vertical-align:top}
+</style>
+<table class="tg" style="undefined;table-layout: fixed; width: 325px"><colgroup>
+<col style="width: 66.2px">
+<col style="width: 66.2px">
+<col style="width: 66.2px">
+<col style="width: 66.2px">
+<col style="width: 66.2px">
+</colgroup>
+<thead>
+  <tr>
+    <th class="tg-c3ow" colspan="5"><span style="font-weight:bold">Dealer</span></th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-f4iu">fu/han</td>
+    <td class="tg-f4iu">1</td>
+    <td class="tg-f4iu">2</td>
+    <td class="tg-f4iu">3</td>
+    <td class="tg-f4iu">4</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">20</td>
+    <td class="tg-f4iu"></td>
+    <td class="tg-f4iu">2000<br>(700)</td>
+    <td class="tg-f4iu">3900<br>(1300)</td>
+    <td class="tg-f4iu">7700<br>(2600)</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">25</td>
+    <td class="tg-f4iu"></td>
+    <td class="tg-f4iu">2400<br>(800)</td>
+    <td class="tg-f4iu">4800<br>(1600)</td>
+    <td class="tg-f4iu">9600<br>(3200)</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">30</td>
+    <td class="tg-f4iu">1500<br>(500)</td>
+    <td class="tg-f4iu">2900<br>(1000)</td>
+    <td class="tg-f4iu">5800<br>(2000)</td>
+    <td class="tg-f4iu">11600<br>(3900)</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">40</td>
+    <td class="tg-f4iu">2000<br>(700)</td>
+    <td class="tg-f4iu">3900<br>(1300)</td>
+    <td class="tg-f4iu">7700<br>(2600)</td>
+    <td class="tg-f4iu">mangan</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">50</td>
+    <td class="tg-f4iu">2400<br>(800(</td>
+    <td class="tg-f4iu">4800<br>(1600)</td>
+    <td class="tg-f4iu">9600<br>(3200)</td>
+    <td class="tg-f4iu">mangan</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">60</td>
+    <td class="tg-f4iu">2900<br>(1000)</td>
+    <td class="tg-f4iu">5800<br>(2000)</td>
+    <td class="tg-f4iu">11600<br>(3900)</td>
+    <td class="tg-f4iu">mangan</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">70</td>
+    <td class="tg-f4iu">3400<br>(1200)</td>
+    <td class="tg-f4iu">6800<br>(2300)</td>
+    <td class="tg-f4iu">mangan</td>
+    <td class="tg-f4iu">mangan</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">Mangan<br>(5 han)</td>
+    <td class="tg-f4iu">Haneman<br>(6-7 han)</td>
+    <td class="tg-f4iu">Baiman<br>(8-10 han)</td>
+    <td class="tg-f4iu">Sanbaiman<br>(11-12 han)</td>
+    <td class="tg-f4iu">Counted<br>Yakuman</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">12000<br>(4000)</td>
+    <td class="tg-f4iu">18000<br>(6000)</td>
+    <td class="tg-f4iu">24000<br>(8000)</td>
+    <td class="tg-f4iu">36000<br>(12000)</td>
+    <td class="tg-f4iu">48000<br>(16000)</td>
+  </tr>
+</tbody></table>
+  </div>
+
+  <div class="tab-content" id="tab2" style="display: none;">
+<style type="text/css">
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:12px;overflow:hidden;padding:2px 2px;word-break:normal;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:12px;font-weight:normal;overflow:hidden;padding:1px 1px;word-break:normal;}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-f4iu{border-color:inherit;font-size:10px;text-align:center;vertical-align:top}
+</style>
+<table class="tg" style="undefined;table-layout: fixed; width: 325px"><colgroup>
+<col style="width: 66.2px">
+<col style="width: 66.2px">
+<col style="width: 66.2px">
+<col style="width: 66.2px">
+<col style="width: 66.2px">
+</colgroup>
+<thead>
+  <tr>
+    <th class="tg-c3ow" colspan="5"><span style="font-weight:bold">Non-Dealer</span></th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-f4iu">fu/han</td>
+    <td class="tg-f4iu">1</td>
+    <td class="tg-f4iu">2</td>
+    <td class="tg-f4iu">3</td>
+    <td class="tg-f4iu">4</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">20</td>
+    <td class="tg-f4iu"></td>
+    <td class="tg-f4iu">1300<br>(400/700)</td>
+    <td class="tg-f4iu">2600<br>(700/1300)</td>
+    <td class="tg-f4iu">5200<br>(1300/2600)</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">25</td>
+    <td class="tg-f4iu"></td>
+    <td class="tg-f4iu">1600<br>(400/800)</td>
+    <td class="tg-f4iu">3200<br>(800/1600)</td>
+    <td class="tg-f4iu">6400<br>(1600/3200)</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">30</td>
+    <td class="tg-f4iu">1000<br>(300/500)</td>
+    <td class="tg-f4iu">2000<br>(500/1000)</td>
+    <td class="tg-f4iu">3900<br>(1000/2000)</td>
+    <td class="tg-f4iu">7700<br>(2000/3900)</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">40</td>
+    <td class="tg-f4iu">1300<br>(400/700)</td>
+    <td class="tg-f4iu">2600<br>(700/1300)</td>
+    <td class="tg-f4iu">5200<br>(1300/2600)</td>
+    <td class="tg-f4iu">mangan</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">50</td>
+    <td class="tg-f4iu">1600<br>(400/800)</td>
+    <td class="tg-f4iu">3200<br>(800/1600)</td>
+    <td class="tg-f4iu">6400<br>(1600/3200)</td>
+    <td class="tg-f4iu">mangan</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">60</td>
+    <td class="tg-f4iu">2000<br>(500/1000)</td>
+    <td class="tg-f4iu">3900<br>(1000/2000)</td>
+    <td class="tg-f4iu">7700<br>(2000/3900)</td>
+    <td class="tg-f4iu">mangan</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">70</td>
+    <td class="tg-f4iu">2300<br>(600/1200)</td>
+    <td class="tg-f4iu">4500<br>(1200/2300)</td>
+    <td class="tg-f4iu">mangan</td>
+    <td class="tg-f4iu">mangan</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">Mangan<br>(5 han)</td>
+    <td class="tg-f4iu">Haneman<br>(6-7 han)</td>
+    <td class="tg-f4iu">Baiman<br>(8-10 han)</td>
+    <td class="tg-f4iu">Sanbaiman<br>(11-12 han)</td>
+    <td class="tg-f4iu">Counted<br>Yakuman</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">8000<br>(2000/4000)</td>
+    <td class="tg-f4iu">12000<br>(3000/6000)</td>
+    <td class="tg-f4iu">16000<br>(4000/8000)</td>
+    <td class="tg-f4iu">24000<br>(6000/12k)</td>
+    <td class="tg-f4iu">32000<br>(8000/16k)</td>
+  </tr>
+</tbody></table>
+  </div>
+
+</div>
+
+<!-- Style (Google-style tabs) -->
+<style>
+  .tabs {
+    display: flex;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 16px;
+  }
+
+  .tab {
+    padding: 12px 24px;
+    font-weight: 500;
+    color: #5f6368;
+    cursor: pointer;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent;
+  }
+
+  .tab:hover {
+    color: #1a73e8;
+  }
+
+  .tab.active {
+    color: #1a73e8;
+    border-bottom: 2px solid #1a73e8;
+  }
+
+  .chart-container {
+    background: white;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(60,64,67,0.15);
+  }
+
+  .tab-content {
+    display: block;
+  }
+
+  body {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    background: #f8f9fa;
+    padding: 30px;
+  }
+</style>
+
+<!-- Script for Tab Switching -->
+<script>
+  const tabButtons = document.querySelectorAll('.tab');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabButtons.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // update tab active state
+      tabButtons.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // show matching content
+      const targetId = tab.getAttribute('data-tab');
+      tabContents.forEach(content => {
+        content.style.display = content.id === targetId ? 'block' : 'none';
+      });
+    });
+  });
+</script>
+
+  
+<img src="https://media1.tenor.com/m/zg841nb3cMYAAAAd/akagi-riichi.gif" width="360">
 
 </div>
 
@@ -259,7 +579,5 @@ riichi yaku list (link tba)
   updateDisplay();
 </script>
 
-
- 
 </body>
 </html>
