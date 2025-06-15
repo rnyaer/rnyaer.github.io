@@ -4,14 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>리치마작 부판계산기</title>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap" rel="stylesheet" />
+
 <style>
-* {
-  font-family: 'Atkinson Hyperlegible', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&display=swap');
+// <weight>: Use a value from 200 to 900
+// <uniquifier>: Use a unique and descriptive class name
+
+.noto-serif-kr-<uniquifier> {
+  font-family: "Noto Serif KR", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
 }
+
+// <weight>: Use a value from 100 to 900
+// <uniquifier>: Use a unique and descriptive class name
+
+.noto-sans-kr-<uniquifier> {
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+
   /* Base Styles */
   body {
-    font-family: 'Atkinson Hyperlegible', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-family: "Noto Serif KR", serif;
     background: #f1f3f4;
     margin: 0;
     padding: 30px;
@@ -133,6 +152,14 @@
   justify-content: center; /* centers the tabs */
 }
 
+.fu-addition-table {
+  margin: 0 auto;
+}
+
+.fu-addition-table {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
 </style>
 
 </head>
@@ -166,7 +193,7 @@
     <button class="han-button" onclick="selectHan('13+')">13+</button>
     <button class="han-button" onclick="selectHan('역만')">역만</button>
   </div>
-<font size="1">역 외우세용 ㅋㅋㅋ <br>
+<font size="2">역 외우세용 ㅋㅋㅋ <br>
 역 일람 (링크 추가?)</font>
 
   <!-- FU CALCULATOR SECTION -->
@@ -187,7 +214,7 @@
   </div>
 
   <!-- FU ADDITION TABLE -->
-<table>
+<table class="fu-addition-table">
   
   <tr>
     <td><font size="1">부저: 20</font></td>
@@ -226,7 +253,7 @@
   <br>
   <br>
   <div class="section-title">점수표</div>
-<font size="1">연짱당 300 (100올) 추가</font>
+<font size="2">연짱당 300 (100올) 추가</font>
 <br><br>
 <!-- Tabs container -->
 <div class="tabs">
