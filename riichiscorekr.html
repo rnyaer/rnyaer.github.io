@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Han & Fu Calculator</title>
+  <title>리치마작 부판계산기</title>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap" rel="stylesheet" />
 <style>
 * {
@@ -143,7 +143,7 @@
 <div class="calculator">
 <img src="https://assets.onecompiler.app/43muy4hjn/43muy6b6h/1803c6c1b07525907.png" width="360"> <br> <br>
   <!-- HAN SECTION -->
-  <div class="section-title">NUMBER OF HAN</div>
+  <div class="section-title">판수</div>
   <div class="han-display" id="selected-han-display">Selected Han: None</div>
 
   <div class="button-row">
@@ -166,13 +166,13 @@
     <button class="han-button" onclick="selectHan('13+')">13+</button>
     <button class="han-button" onclick="selectHan('YAKUMAN')">YAKUMAN</button>
   </div>
-memorize your yaku lol <br>
-riichi yaku list (link tba)
+역 외우세용 ㅋㅋㅋ <br>
+역 일람 (링크 추가?)
 
   <!-- FU CALCULATOR SECTION -->
-  <div class="section-title" style="margin-top: 2rem;">FU CALCULATOR</div>
-  <div class="value-display" id="current-value">Current Value: 20</div>
-  <div class="rounded-display" id="rounded-value">Rounded up to nearest 10: 20</div>
+  <div class="section-title" style="margin-top: 2rem;">부 계산기</div>
+  <div class="value-display" id="current-value">부저: 20</div>
+  <div class="rounded-display" id="rounded-value">10의자리 올림: 20</div>
 
   <div class="button-row">
     <button class="add-button" onclick="addValue(5)">+5</button>
@@ -190,49 +190,49 @@ riichi yaku list (link tba)
 <table>
   
   <tr>
-    <td><font size="1">Fu base: 20</font></td>
-    <td><font size="1">Menzen ron: +10</font></td>
-    <td><font size="1">Pair Yakuhai: +2</font></td>
-    <td><font size="1">Mingke: +2/+4</font></td>
+    <td><font size="1">부저: 20</font></td>
+    <td><font size="1">멘젠론: +10</font></td>
+    <td><font size="1">역패머리: +2</font></td>
+    <td><font size="1">밍커: +2/+4</font></td>
   </tr>
   <tr>
-    <td><font size="1">Pinfu Tsumo: +0</font></td>
-    <td><font size="1">Tsumo: +2</font></td>
-    <td><font size="1">Pair not Yakuhai: +0</font></td>
-    <td><font size="1">Anke: +4/+8</font></td>
+    <td><font size="1">핑후쯔모: +0</font></td>
+    <td><font size="1">쯔모: +2</font></td>
+    <td><font size="1">머리 역패 아님: +0</font></td>
+    <td><font size="1">안커: +4/+8</font></td>
   </tr>
   <tr>
-    <td><font size="1">All other pinfu: +10</font></td>
-    <td><font size="1">Single Wait: +2</font></td>
-    <td><font size="1">2-8: smaller number</font></td>
-    <td><font size="1">Mingkan: +8/+16</font></td>
+    <td><font size="1">쯔모외모든핑후: +10</font></td>
+    <td><font size="1">간짱벽짱단기대기: +2</font></td>
+    <td><font size="1">중장패- 작은숫자</font></td>
+    <td><font size="1">밍깡: +8/+16</font></td>
   </tr>
    <tr>
     <td><font size="1">Chiitoi: +5</font></td>
     <td><font size="1">Double Wait: +0</font></td>
-    <td><font size="1">1, 9, hon: larger number</font></td>
-    <td><font size="1">Ankan: +16/+32</font></td>
+    <td><font size="1">요구패 - 큰숫자</font></td>
+    <td><font size="1">안깡: +16/+32</font></td>
   </tr>
  
 </table>
 
   <!-- Two Reset Buttons -->
   <div class="reset-row">
-    <button class="reset-button" onclick="resetFU()">Reset FU</button>
-    <button class="reset-button" onclick="resetAll()">Reset All</button>
+    <button class="reset-button" onclick="resetFU()">부수 리셋</button>
+    <button class="reset-button" onclick="resetAll()">천세 리셋</button>
   </div>
   
   <!-- Score Chart -->
   <br>
   <br>
-  <div class="section-title">SCORE CHART</div>
-300 (100all) added per renchan
+  <div class="section-title">점수표</div>
+연짱당 300 (100올) 추가
 <br><br>
 <!-- Tabs container -->
 <div class="tabs">
   
-  <button class="tab-button active" data-tab="tab1">Dealer</button>
-  <button class="tab-button" data-tab="tab2">Non-Dealer</button>
+  <button class="tab-button active" data-tab="tab1">오야/친</button>
+  <button class="tab-button" data-tab="tab2">코/자</button>
 </div>
 
 <!-- Tab contents -->
@@ -260,7 +260,7 @@ riichi yaku list (link tba)
   </tr></thead>
 <tbody>
   <tr>
-    <td class="tg-f4iu">fu/han</td>
+    <td class="tg-f4iu">부/판</td>
     <td class="tg-f4iu">1</td>
     <td class="tg-f4iu">2</td>
     <td class="tg-f4iu">3</td>
@@ -292,35 +292,35 @@ riichi yaku list (link tba)
     <td class="tg-f4iu">2000<br>(700)</td>
     <td class="tg-f4iu">3900<br>(1300)</td>
     <td class="tg-f4iu">7700<br>(2600)</td>
-    <td class="tg-f4iu">mangan</td>
+    <td class="tg-f4iu">만관</td>
   </tr>
   <tr>
     <td class="tg-f4iu">50</td>
     <td class="tg-f4iu">2400<br>(800)</td>
     <td class="tg-f4iu">4800<br>(1600)</td>
     <td class="tg-f4iu">9600<br>(3200)</td>
-    <td class="tg-f4iu">mangan</td>
+    <td class="tg-f4iu">만관</td>
   </tr>
   <tr>
     <td class="tg-f4iu">60</td>
     <td class="tg-f4iu">2900<br>(1000)</td>
     <td class="tg-f4iu">5800<br>(2000)</td>
     <td class="tg-f4iu">11600<br>(3900)</td>
-    <td class="tg-f4iu">mangan</td>
+    <td class="tg-f4iu">만관</td>
   </tr>
   <tr>
     <td class="tg-f4iu">70</td>
     <td class="tg-f4iu">3400<br>(1200)</td>
     <td class="tg-f4iu">6800<br>(2300)</td>
-    <td class="tg-f4iu">mangan</td>
-    <td class="tg-f4iu">mangan</td>
+    <td class="tg-f4iu">만관</td>
+    <td class="tg-f4iu">만관</td>
   </tr>
   <tr>
-    <td class="tg-f4iu">Mangan<br>(5 han)</td>
-    <td class="tg-f4iu">Haneman<br>(6-7 han)</td>
-    <td class="tg-f4iu">Baiman<br>(8-10 han)</td>
-    <td class="tg-f4iu">Sanbaiman<br>(11-12 han)</td>
-    <td class="tg-f4iu">Counted<br>Yakuman</td>
+    <td class="tg-f4iu">만관<br>(5판)</td>
+    <td class="tg-f4iu">하네만<br>(6-7판)</td>
+    <td class="tg-f4iu">배만<br>(8-10판)</td>
+    <td class="tg-f4iu">삼배만<br>(11-12판)</td>
+    <td class="tg-f4iu">헤아림<br>역만</td>
   </tr>
   <tr>
     <td class="tg-f4iu">12000<br>(4000)</td>
@@ -357,7 +357,7 @@ riichi yaku list (link tba)
   </tr></thead>
 <tbody>
   <tr>
-    <td class="tg-f4iu">fu/han</td>
+    <td class="tg-f4iu">부/판</td>
     <td class="tg-f4iu">1</td>
     <td class="tg-f4iu">2</td>
     <td class="tg-f4iu">3</td>
@@ -389,35 +389,35 @@ riichi yaku list (link tba)
     <td class="tg-f4iu">1300<br>(400/700)</td>
     <td class="tg-f4iu">2600<br>(700/1300)</td>
     <td class="tg-f4iu">5200<br>(1300/2600)</td>
-    <td class="tg-f4iu">mangan</td>
+    <td class="tg-f4iu">만관</td>
   </tr>
   <tr>
     <td class="tg-f4iu">50</td>
     <td class="tg-f4iu">1600<br>(400/800)</td>
     <td class="tg-f4iu">3200<br>(800/1600)</td>
     <td class="tg-f4iu">6400<br>(1600/3200)</td>
-    <td class="tg-f4iu">mangan</td>
+    <td class="tg-f4iu">만관</td>
   </tr>
   <tr>
     <td class="tg-f4iu">60</td>
     <td class="tg-f4iu">2000<br>(500/1000)</td>
     <td class="tg-f4iu">3900<br>(1000/2000)</td>
     <td class="tg-f4iu">7700<br>(2000/3900)</td>
-    <td class="tg-f4iu">mangan</td>
+    <td class="tg-f4iu">만관</td>
   </tr>
   <tr>
     <td class="tg-f4iu">70</td>
     <td class="tg-f4iu">2300<br>(600/1200)</td>
     <td class="tg-f4iu">4500<br>(1200/2300)</td>
-    <td class="tg-f4iu">mangan</td>
-    <td class="tg-f4iu">mangan</td>
+    <td class="tg-f4iu">만관</td>
+    <td class="tg-f4iu">만관</td>
   </tr>
   <tr>
-    <td class="tg-f4iu">Mangan<br>(5 han)</td>
-    <td class="tg-f4iu">Haneman<br>(6-7 han)</td>
-    <td class="tg-f4iu">Baiman<br>(8-10 han)</td>
-    <td class="tg-f4iu">Sanbaiman<br>(11-12 han)</td>
-    <td class="tg-f4iu">Counted<br>Yakuman</td>
+    <td class="tg-f4iu">만관<br>(5판)</td>
+    <td class="tg-f4iu">하네만<br>(6-7판)</td>
+    <td class="tg-f4iu">배만<br>(8-10판)</td>
+    <td class="tg-f4iu">삼배만<br>(11-12판)</td>
+    <td class="tg-f4iu">헤아림<br>역만</td>
   </tr>
   <tr>
     <td class="tg-f4iu">8000<br>(2000/4000)</td>
