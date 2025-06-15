@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Han & Fu Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap" rel="stylesheet" />
+<style>
+* {
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+  /* Base Styles */
+  body {
+    font-family: 'Atkinson Hyperlegible', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    background: #f1f3f4;
+    margin: 0;
+    padding: 30px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h2 {
+    font-weight: 500;
+    color: #202124;
+  }
+
+  /* Calculator Container */
+  .calculator {
+    background: white;
+    padding: 2rem;
+    width: 360px;
+    border-radius: 1.25rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+
+  /* Section Titles & Displays */
+  .section-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #2aa27f;
+  }
+
+  .han-display,
+  .rounded-display {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #d93025;
+    margin-bottom: 1rem;
+  }
+
+  .rounded-display {
+    margin-bottom: 1.5rem;
+  }
+
+  .value-display {
+    font-size: 1rem;
+    color: #202124;
+    margin: 1rem 0 0.25rem;
+  }
+
+  /* Button Styles */
+  button {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .button-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .han-button {
+    background-color: #e8eaed;
+    color: #202124;
+  }
+
+  .han-button:hover {
+    background-color: #117d5e;
+    color: white;
+  }
+
+  .han-button.selected {
+    background-color: #2aa27f;
+    color: white;
+  }
+
+  .add-button {
+    background-color: #2aa27f;
+    color: white;
+  }
+
+  .add-button:hover {
+    background-color: #117d5e;
+  }
+
+  .reset-button {
+    background-color: #e8ab42;
+    color: white;
+    margin-top: 0.75rem;
+  }
+
+  .reset-button:hover {
+    background-color: #be991c;
+  }
+
+  .reset-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .reset-full {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  justify-content: center; /* centers the tabs */
+}
+
+  .fu-addition-table {
+  margin: 0 auto;
+  font-size: 0.6rem;
+}
+
+
+</style>
+
+</head>
+
+<body>
+  
+
+<div class="calculator">
+<img src="https://assets.onecompiler.app/43muy4hjn/43muy6b6h/1803c6c1b07525907.png" width="360"> <br> <br>
+  <!-- HAN SECTION -->
+  <div class="section-title">NUMBER OF HAN</div>
+  <div class="han-display" id="selected-han-display">Selected Han: None</div>
+
+  <div class="button-row">
+    <button class="han-button" onclick="selectHan('1')">1</button>
+    <button class="han-button" onclick="selectHan('2')">2</button>
+    <button class="han-button" onclick="selectHan('3')">3</button>
+    <button class="han-button" onclick="selectHan('4')">4</button>
+    <button class="han-button" onclick="selectHan('5')">5</button>
+  </div>
+  <div class="button-row">
+    <button class="han-button" onclick="selectHan('6')">6</button>
+    <button class="han-button" onclick="selectHan('7')">7</button>
+    <button class="han-button" onclick="selectHan('8')">8</button>
+    <button class="han-button" onclick="selectHan('9')">9</button>
+    <button class="han-button" onclick="selectHan('10')">10</button>
+  </div>
+  <div class="button-row">
+    <button class="han-button" onclick="selectHan('11')">11</button>
+    <button class="han-button" onclick="selectHan('12')">12</button>
+    <button class="han-button" onclick="selectHan('13+')">13+</button>
+    <button class="han-button" onclick="selectHan('YAKUMAN')">YAKUMAN</button>
+  </div>
+memorize your yaku lol <br>
+riichi yaku list (link tba) <br>
+do not count fu if 5 han or higher
+
+  <!-- FU CALCULATOR SECTION -->
+  <div class="section-title" style="margin-top: 2rem;">FU CALCULATOR</div>
+  <div class="value-display" id="current-value">Current Value: 20</div>
+  <div class="rounded-display" id="rounded-value">Rounded up to nearest 10: 20</div>
+
+  <div class="button-row">
+    <button class="add-button" onclick="addValue(5)">+5</button>
+    <button class="add-button" onclick="addValue(10)">+10</button>
+  </div>
+  <div class="button-row">
+    <button class="add-button" onclick="addValue(2)">+2</button>
+    <button class="add-button" onclick="addValue(4)">+4</button>
+    <button class="add-button" onclick="addValue(8)">+8</button>
+    <button class="add-button" onclick="addValue(16)">+16</button>
+    <button class="add-button" onclick="addValue(32)">+32</button>
+  </div>
+
+  <!-- FU ADDITION TABLE -->
+<table class="fu-addition-table">
+
+    <tr>
+    <td>Fu base: 20</td>
+    <td bgcolor="#d6eaf8">Menzen ron: +10</td>
+    <td bgcolor="#fcf3cf">Pair Yakuhai: +2</td>
+    <td bgcolor="#d5f5e3">Mingke: +2/+4</td>
+  </tr>
+  <tr>
+    <td bgcolor="#e8daef">Pinfu Tsumo: +0</td>
+    <td bgcolor="#d6eaf8">Tsumo: +2</td>
+    <td bgcolor="#fcf3cf">Pair not Yakuhai: +0</td>
+    <td bgcolor="#d5f5e3">Anke: +4/+8</td>
+  </tr>
+  <tr>
+    <td bgcolor="#e8daef">All other pinfu: +10</td>
+    <td bgcolor="#fadbd8">Single Wait: +2</td>
+    <td>2-8: smaller number></td>
+    <td bgcolor="#d5f5e3">Mingkan: +8/+16</td>
+  </tr>
+   <tr>
+    <td bgcolor="#e8daef">Chiitoi: +5</td>
+    <td bgcolor="#fadbd8">Double Wait: +0</td>
+    <td>1, 9, hon: larger number></td>
+    <td bgcolor="#d5f5e3">Ankan: +16/+32</td>
+  </tr>
+  
+ 
+</table>
+
+  <!-- Two Reset Buttons -->
+  <div class="reset-row">
+    <button class="reset-button" onclick="resetFU()">Reset FU</button>
+    <button class="reset-button" onclick="resetAll()">Reset All</button>
+  </div>
+  
+ <!-- Score Chart -->
+  <br>
+  <br>
+  <div class="section-title">SCORE CHART</div>
+300 (100all) added per renchan
+<br><br>
+
+<!-- Tabs container -->
+<div class="tabs">
+  
+  <button class="tab-button active" data-tab="tab1">Dealer</button>
+  <button class="tab-button" data-tab="tab2">Non-Dealer</button>
+</div>
+
+<!-- Tab contents -->
+<div class="tab-content active" id="tab1">
+  <p>
+    <style type="text/css">
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:12px;overflow:hidden;padding:2px 2px;word-break:normal;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:12px;font-weight:normal;overflow:hidden;padding:1px 1px;word-break:normal;}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-f4iu{border-color:inherit;font-size:10px;text-align:center;vertical-align:top}
+</style>
+<table class="tg" style="undefined;table-layout: fixed; width: 325px"><colgroup>
+<col style="width: 66.2px">
+<col style="width: 66.2px">
+<col style="width: 66.2px">
+<col style="width: 66.2px">
+<col style="width: 66.2px">
+</colgroup>
+<thead>
+  <tr>
+    <th class="tg-c3ow" colspan="5"><span style="font-weight:bold">Dealer</span></th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-f4iu">fu/han</td>
+    <td class="tg-f4iu">1</td>
+    <td class="tg-f4iu">2</td>
+    <td class="tg-f4iu">3</td>
+    <td class="tg-f4iu">4</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">20</td>
+    <td class="tg-f4iu"></td>
+    <td class="tg-f4iu">2000<br>(700)</td>
+    <td class="tg-f4iu">3900<br>(1300)</td>
+    <td class="tg-f4iu">7700<br>(2600)</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">25</td>
+    <td class="tg-f4iu"></td>
+    <td class="tg-f4iu">2400<br>(800)</td>
+    <td class="tg-f4iu">4800<br>(1600)</td>
+    <td class="tg-f4iu">9600<br>(3200)</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">30</td>
+    <td class="tg-f4iu">1500<br>(500)</td>
+    <td class="tg-f4iu">2900<br>(1000)</td>
+    <td class="tg-f4iu">5800<br>(2000)</td>
+    <td class="tg-f4iu">11600<br>(3900)</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">40</td>
+    <td class="tg-f4iu">2000<br>(700)</td>
+    <td class="tg-f4iu">3900<br>(1300)</td>
+    <td class="tg-f4iu">7700<br>(2600)</td>
+    <td class="tg-f4iu">mangan</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">50</td>
+    <td class="tg-f4iu">2400<br>(800)</td>
+    <td class="tg-f4iu">4800<br>(1600)</td>
+    <td class="tg-f4iu">9600<br>(3200)</td>
+    <td class="tg-f4iu">mangan</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">60</td>
+    <td class="tg-f4iu">2900<br>(1000)</td>
+    <td class="tg-f4iu">5800<br>(2000)</td>
+    <td class="tg-f4iu">11600<br>(3900)</td>
+    <td class="tg-f4iu">mangan</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">70</td>
+    <td class="tg-f4iu">3400<br>(1200)</td>
+    <td class="tg-f4iu">6800<br>(2300)</td>
+    <td class="tg-f4iu">mangan</td>
+    <td class="tg-f4iu">mangan</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">Mangan<br>(5 han)</td>
+    <td class="tg-f4iu">Haneman<br>(6-7 han)</td>
+    <td class="tg-f4iu">Baiman<br>(8-10 han)</td>
+    <td class="tg-f4iu">Sanbaiman<br>(11-12 han)</td>
+    <td class="tg-f4iu">Counted<br>Yakuman</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">12000<br>(4000)</td>
+    <td class="tg-f4iu">18000<br>(6000)</td>
+    <td class="tg-f4iu">24000<br>(8000)</td>
+    <td class="tg-f4iu">36000<br>(12000)</td>
+    <td class="tg-f4iu">48000<br>(16000)</td>
+  </tr>
+</tbody></table>
+</p>
+</div>
+
+<div class="tab-content" id="tab2">
+  <p>
+   <style type="text/css">
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:12px;overflow:hidden;padding:2px 2px;word-break:normal;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:12px;font-weight:normal;overflow:hidden;padding:1px 1px;word-break:normal;}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-f4iu{border-color:inherit;font-size:10px;text-align:center;vertical-align:top}
+</style>
+<table class="tg" style="undefined;table-layout: fixed; width: 325px"><colgroup>
+<col style="width: 66.2px">
+<col style="width: 66.2px">
+<col style="width: 66.2px">
+<col style="width: 66.2px">
+<col style="width: 66.2px">
+</colgroup>
+<thead>
+  <tr>
+    <th class="tg-c3ow" colspan="5"><span style="font-weight:bold">Non-Dealer</span></th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-f4iu">fu/han</td>
+    <td class="tg-f4iu">1</td>
+    <td class="tg-f4iu">2</td>
+    <td class="tg-f4iu">3</td>
+    <td class="tg-f4iu">4</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">20</td>
+    <td class="tg-f4iu"></td>
+    <td class="tg-f4iu">1300<br>(400/700)</td>
+    <td class="tg-f4iu">2600<br>(700/1300)</td>
+    <td class="tg-f4iu">5200<br>(1300/2600)</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">25</td>
+    <td class="tg-f4iu"></td>
+    <td class="tg-f4iu">1600<br>(400/800)</td>
+    <td class="tg-f4iu">3200<br>(800/1600)</td>
+    <td class="tg-f4iu">6400<br>(1600/3200)</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">30</td>
+    <td class="tg-f4iu">1000<br>(300/500)</td>
+    <td class="tg-f4iu">2000<br>(500/1000)</td>
+    <td class="tg-f4iu">3900<br>(1000/2000)</td>
+    <td class="tg-f4iu">7700<br>(2000/3900)</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">40</td>
+    <td class="tg-f4iu">1300<br>(400/700)</td>
+    <td class="tg-f4iu">2600<br>(700/1300)</td>
+    <td class="tg-f4iu">5200<br>(1300/2600)</td>
+    <td class="tg-f4iu">mangan</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">50</td>
+    <td class="tg-f4iu">1600<br>(400/800)</td>
+    <td class="tg-f4iu">3200<br>(800/1600)</td>
+    <td class="tg-f4iu">6400<br>(1600/3200)</td>
+    <td class="tg-f4iu">mangan</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">60</td>
+    <td class="tg-f4iu">2000<br>(500/1000)</td>
+    <td class="tg-f4iu">3900<br>(1000/2000)</td>
+    <td class="tg-f4iu">7700<br>(2000/3900)</td>
+    <td class="tg-f4iu">mangan</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">70</td>
+    <td class="tg-f4iu">2300<br>(600/1200)</td>
+    <td class="tg-f4iu">4500<br>(1200/2300)</td>
+    <td class="tg-f4iu">mangan</td>
+    <td class="tg-f4iu">mangan</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">Mangan<br>(5 han)</td>
+    <td class="tg-f4iu">Haneman<br>(6-7 han)</td>
+    <td class="tg-f4iu">Baiman<br>(8-10 han)</td>
+    <td class="tg-f4iu">Sanbaiman<br>(11-12 han)</td>
+    <td class="tg-f4iu">Counted<br>Yakuman</td>
+  </tr>
+  <tr>
+    <td class="tg-f4iu">8000<br>(2000/4000)</td>
+    <td class="tg-f4iu">12000<br>(3000/6000)</td>
+    <td class="tg-f4iu">16000<br>(4000/8000)</td>
+    <td class="tg-f4iu">24000<br>(6000/12k)</td>
+    <td class="tg-f4iu">32000<br>(8000/16k)</td>
+  </tr>
+</tbody></table>
+  </p>
+</div>
+
+<style>
+  .tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .tab-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: #e8eaed;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+  }
+  .tab-button.active,
+  .tab-button:hover {
+    background: #2aa27f;
+    color: white;
+  }
+  .tab-content {
+    display: none;
+    padding: 1rem;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
+
+  }
+  .tab-content.active {
+    display: block;
+  }
+</style>
+
+<script>
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const target = button.dataset.tab;
+
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      tabContents.forEach(content => {
+        content.classList.toggle('active', content.id === target);
+      });
+    });
+  });
+</script>
+
+
+  
+<img src="https://media1.tenor.com/m/zg841nb3cMYAAAAd/akagi-riichi.gif" width="360">
+
+</div>
+
+<script>
+  const defaultValue = 20;
+  let currentValue = defaultValue;
+  let selectedHan = null;
+
+  function updateDisplay() {
+    document.getElementById("current-value").textContent = "Current Value: " + currentValue;
+    const rounded = Math.ceil(currentValue / 10) * 10;
+    document.getElementById("rounded-value").textContent = "Rounded up to nearest 10: " + rounded;
+  }
+
+  function addValue(amount) {
+    currentValue += amount;
+    updateDisplay();
+  }
+
+  function resetFU() {
+    currentValue = defaultValue;
+    updateDisplay();
+  }
+
+  function resetAll() {
+    resetFU();
+    selectedHan = null;
+    document.querySelectorAll('.han-button').forEach(btn => btn.classList.remove('selected'));
+    document.getElementById('selected-han-display').textContent = "Selected Han: None";
+  }
+
+  function selectHan(value) {
+    selectedHan = value;
+    document.querySelectorAll('.han-button').forEach(btn => {
+      btn.classList.remove('selected');
+      if (btn.textContent === value) {
+        btn.classList.add('selected');
+      }
+    });
+    document.getElementById('selected-han-display').textContent = "Selected Han: " + value;
+  }
+
+  updateDisplay();
+</script>
+
+</body>
+</html>
