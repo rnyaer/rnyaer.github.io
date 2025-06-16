@@ -30,7 +30,7 @@
 
   /* Base Styles */
   body {
-    font-family: "Noto Serif KR", serif;
+    font-family: "Noto Sans KR", serif;
     background: #f1f3f4;
     margin: 0;
     padding: 30px;
@@ -45,15 +45,6 @@
     color: #202124;
   }
 
-  /* Calculator Container */
-  .calculator {
-    background: white;
-    padding: 2rem;
-    width: 360px;
-    border-radius: 1.25rem;
-
-    text-align: center;
-  }
 
   /* Section Titles & Displays */
   .section-title {
@@ -61,6 +52,7 @@
     font-weight: bold;
     margin-bottom: 0.75rem;
     color: #2aa27f;
+    font-family: "Noto Serif KR", serif;
   }
 
   .han-display,
@@ -69,16 +61,19 @@
     font-weight: bold;
     color: #d93025;
     margin-bottom: 1rem;
+      font-family: "Noto Sans KR", serif;
   }
 
   .rounded-display {
     margin-bottom: 1.5rem;
+      font-family: "Noto Sans KR", serif;
   }
 
   .value-display {
     font-size: 1rem;
     color: #202124;
     margin: 1rem 0 0.25rem;
+      font-family: "Noto Sans KR", serif;
   }
 
   /* Button Styles */
@@ -179,12 +174,17 @@
   text-align: center;
 }
 
+.yaku-description {
+  text-align: left;
+     font-size: 0.9rem;
+}
+
 </style>
 
 </head>
 
 <body>
-
+  <div class="container">
 <div class="calculator">
 <img src="https://assets.onecompiler.app/43muy4hjn/43muy6b6h/1803c6c1b07525907.png" width="360"> <br> <br>
   <!-- HAN SECTION -->
@@ -592,23 +592,116 @@
  <div class="new-interface">
       <!-- your new interface content here -->
       <div class="section-title">점수 계산기</div>
-      못할것 같은데...<br>
+      못할것 같은데... <br>
+      친/자 선택 <br>
+      론/쯔모 선택 <br>
+      판수 (1~13) / 부수 입력 (20~110)<br>
+      연장 (0~8)
+      <br>
       <br>
       <div class="section-title">역 일람</div>
-      <hr style="border: none; border-bottom: 1px solid #ccc; margin: 1rem 0;">
-      1판역 
-      <hr style="border: none; border-bottom: 1px solid #ccc; margin: 1rem 0;">
-      2판역
-      <hr style="border: none; border-bottom: 1px solid #ccc; margin: 1rem 0;">
-      3판역
-      <hr style="border: none; border-bottom: 1px solid #ccc; margin: 1rem 0;">
-      4판역
-      <hr style="border: none; border-bottom: 1px solid #ccc; margin: 1rem 0;">
-      6판역 
-      <hr style="border: none; border-bottom: 1px solid #ccc; margin: 1rem 0;">
-      역만 
-      <hr style="border: none; border-bottom: 1px solid #ccc; margin: 1rem 0;">
-      더블역만
+    <style type="text/css">
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:2px 2px;word-break:normal;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:2px 2px;word-break:normal;}
+.tg .tg-enqi{border-color:#c0c0c0;font-size:11px;text-align:center;vertical-align:middle}
+</style>
+<table class="tg" style="undefined;table-layout: fixed; width: 350px"><colgroup>
+<col style="width: 65px">
+<col style="width: 65px">
+<col style="width: 65px">
+<col style="width: 65px">
+<col style="width: 65px">
+</colgroup>
+<thead>
+  <tr>
+    <th class="tg-enqi">1판</th>
+    <th class="tg-enqi">2판</th>
+    <th class="tg-enqi">*멘젠한정<br>-멘젠준한정</th>
+    <th class="tg-enqi">역만</th>
+    <th class="tg-enqi">더블역만</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-enqi">리치*</td>
+    <td class="tg-enqi">찬타-</td>
+    <td class="tg-enqi"></td>
+    <td class="tg-enqi">스안커</td>
+    <td class="tg-enqi">스안커 단기</td>
+  </tr>
+  <tr>
+    <td class="tg-enqi">역패</td>
+    <td class="tg-enqi">혼노두</td>
+    <td class="tg-enqi">3판</td>
+    <td class="tg-enqi">대삼원</td>
+    <td class="tg-enqi"></td>
+  </tr>
+  <tr>
+    <td class="tg-enqi">탕야오</td>
+    <td class="tg-enqi">또이또이</td>
+    <td class="tg-enqi">준찬타-</td>
+    <td class="tg-enqi">국사</td>
+    <td class="tg-enqi">국사13면</td>
+  </tr>
+  <tr>
+    <td class="tg-enqi">핑후*</td>
+    <td class="tg-enqi">산안커</td>
+    <td class="tg-enqi">혼일색-</td>
+    <td class="tg-enqi">자일색</td>
+    <td class="tg-enqi"></td>
+  </tr>
+  <tr>
+    <td class="tg-enqi">멘젠쯔모*</td>
+    <td class="tg-enqi">일기통관-</td>
+    <td class="tg-enqi">량페코*</td>
+    <td class="tg-enqi">소사희</td>
+    <td class="tg-enqi">대사희</td>
+  </tr>
+  <tr>
+    <td class="tg-enqi">일발*</td>
+    <td class="tg-enqi">삼색동순-</td>
+    <td class="tg-enqi"></td>
+    <td class="tg-enqi">청노두</td>
+    <td class="tg-enqi"></td>
+  </tr>
+  <tr>
+    <td class="tg-enqi">이페코*</td>
+    <td class="tg-enqi">삼색동각-</td>
+    <td class="tg-enqi">4판</td>
+    <td class="tg-enqi">구련보등</td>
+    <td class="tg-enqi">순정구련</td>
+  </tr>
+  <tr>
+    <td class="tg-enqi">해저</td>
+    <td class="tg-enqi">치또이*</td>
+    <td class="tg-enqi">유국만관</td>
+    <td class="tg-enqi">녹일색</td>
+    <td class="tg-enqi"></td>
+  </tr>
+  <tr>
+    <td class="tg-enqi">하저</td>
+    <td class="tg-enqi">소삼원</td>
+    <td class="tg-enqi"></td>
+    <td class="tg-enqi">스깡쯔</td>
+    <td class="tg-enqi"></td>
+  </tr>
+  <tr>
+    <td class="tg-enqi">영상개화</td>
+    <td class="tg-enqi">더블리치*</td>
+    <td class="tg-enqi">6판</td>
+    <td class="tg-enqi">천화</td>
+    <td class="tg-enqi"></td>
+  </tr>
+  <tr>
+    <td class="tg-enqi">창깡</td>
+    <td class="tg-enqi">산깡쯔</td>
+    <td class="tg-enqi">청일색-</td>
+    <td class="tg-enqi">지화</td>
+    <td class="tg-enqi"></td>
+  </tr>
+</tbody></table>
     </div>
 
 </div> 
