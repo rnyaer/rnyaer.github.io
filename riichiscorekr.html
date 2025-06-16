@@ -37,7 +37,7 @@
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
   }
 
   h2 {
@@ -51,14 +51,14 @@
     padding: 2rem;
     width: 360px;
     border-radius: 1.25rem;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+
     text-align: center;
   }
 
   /* Section Titles & Displays */
   .section-title {
     font-size: 1.4rem;
-    font-weight: 600;
+    font-weight: bold;
     margin-bottom: 0.75rem;
     color: #2aa27f;
   }
@@ -161,12 +161,29 @@
   font-size: 0.7rem;
 }
 
+.container {
+  display: flex;
+  gap: 2rem; /* space between */
+  justify-content: center;
+  align-items: flex-start; /* align top */
+  padding: 30px;
+}
+
+/* Optionally set width for each panel */
+.calculator, .new-interface {
+  width: 360px; /* same width as calculator */
+  background: white;
+  padding: 2rem;
+  border-radius: 1.25rem;
+
+  text-align: center;
+}
+
 </style>
 
 </head>
 
 <body>
-  
 
 <div class="calculator">
 <img src="https://assets.onecompiler.app/43muy4hjn/43muy6b6h/1803c6c1b07525907.png" width="360"> <br> <br>
@@ -344,6 +361,34 @@
     <td class="tg-f4iu">만관</td>
     <td class="tg-f4iu">만관</td>
   </tr>
+      <tr>
+    <td class="tg-f4iu">80</td>
+    <td class="tg-f4iu">3900<br>(1300)</td>
+    <td class="tg-f4iu">7700<br>(2600)</td>
+    <td class="tg-f4iu">만관</td>
+    <td class="tg-f4iu">만관</td>
+  </tr>
+    <tr>
+    <td class="tg-f4iu">90</td>
+    <td class="tg-f4iu">4400<br>(1500)</td>
+    <td class="tg-f4iu">8700<br>(2900)</td>
+    <td class="tg-f4iu">만관</td>
+    <td class="tg-f4iu">만관</td>
+  </tr>
+    <tr>
+    <td class="tg-f4iu">100</td>
+    <td class="tg-f4iu">4800<br>(1600)</td>
+    <td class="tg-f4iu">9600<br>(3200)</td>
+    <td class="tg-f4iu">만관</td>
+    <td class="tg-f4iu">만관</td>
+  </tr>
+    <tr>
+    <td class="tg-f4iu">110</td>
+    <td class="tg-f4iu">5300<br>(1800)</td>
+    <td class="tg-f4iu">10600<br>(3600)</td>
+    <td class="tg-f4iu">만관</td>
+    <td class="tg-f4iu">만관</td>
+  </tr>
   <tr>
     <td class="tg-f4iu">만관<br>(5판)</td>
     <td class="tg-f4iu">하네만<br>(6-7판)</td>
@@ -441,6 +486,34 @@
     <td class="tg-f4iu">만관</td>
     <td class="tg-f4iu">만관</td>
   </tr>
+    <tr>
+    <td class="tg-f4iu">80</td>
+    <td class="tg-f4iu">2600<br>(700/1300)</td>
+    <td class="tg-f4iu">5200<br>(1300/2600)</td>
+    <td class="tg-f4iu">만관</td>
+    <td class="tg-f4iu">만관</td>
+  </tr>
+    <tr>
+    <td class="tg-f4iu">90</td>
+    <td class="tg-f4iu">2900<br>(800/1500)</td>
+    <td class="tg-f4iu">5800<br>(1500/2900)</td>
+    <td class="tg-f4iu">만관</td>
+    <td class="tg-f4iu">만관</td>
+  </tr>
+    <tr>
+    <td class="tg-f4iu">100</td>
+    <td class="tg-f4iu">3200<br>(800/1600)</td>
+    <td class="tg-f4iu">6400<br>(1600/3200)</td>
+    <td class="tg-f4iu">만관</td>
+    <td class="tg-f4iu">만관</td>
+  </tr>
+    <tr>
+    <td class="tg-f4iu">110</td>
+    <td class="tg-f4iu">3600<br>(900/1800)</td>
+    <td class="tg-f4iu">7100<br>(1800/3600)</td>
+    <td class="tg-f4iu">만관</td>
+    <td class="tg-f4iu">만관</td>
+  </tr>
   <tr>
     <td class="tg-f4iu">만관<br>(5판)</td>
     <td class="tg-f4iu">하네만<br>(6-7판)</td>
@@ -514,7 +587,31 @@
   
 <img src="https://media1.tenor.com/m/zg841nb3cMYAAAAd/akagi-riichi.gif" width="360">
 
-</div>
+</div> 
+
+ <div class="new-interface">
+      <!-- your new interface content here -->
+      <div class="section-title">점수 계산기</div>
+      못할것 같은데...<br>
+      <br>
+      <div class="section-title">역 일람</div>
+      <hr style="border: none; border-bottom: 1px solid #ccc; margin: 1rem 0;">
+      1판역 
+      <hr style="border: none; border-bottom: 1px solid #ccc; margin: 1rem 0;">
+      2판역
+      <hr style="border: none; border-bottom: 1px solid #ccc; margin: 1rem 0;">
+      3판역
+      <hr style="border: none; border-bottom: 1px solid #ccc; margin: 1rem 0;">
+      4판역
+      <hr style="border: none; border-bottom: 1px solid #ccc; margin: 1rem 0;">
+      6판역 
+      <hr style="border: none; border-bottom: 1px solid #ccc; margin: 1rem 0;">
+      역만 
+      <hr style="border: none; border-bottom: 1px solid #ccc; margin: 1rem 0;">
+      더블역만
+    </div>
+
+</div> 
 
 <script>
   const defaultValue = 20;
